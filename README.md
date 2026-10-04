@@ -1,6 +1,6 @@
 # deeportfolio
 
-Portfolio frontend built with React, TypeScript, Vite and Tailwind CSS v4.
+Portfolio site for Duaa Alahmed, built with React, TypeScript, Vite, Tailwind CSS v4, [shadcn/ui](https://ui.shadcn.com) and a 3D hero model rendered with react-three-fiber.
 
 ## Getting started
 
@@ -16,6 +16,10 @@ npm run lint     # lint with oxlint
 
 ## Project structure
 
-- `src/App.tsx` is the starter page.
-- `src/index.css` imports Tailwind (`@import "tailwindcss";`).
-- `vite.config.ts` registers the `@tailwindcss/vite` plugin.
+- `src/components/sections/` holds the page sections (navbar, landing, about, projects, education, footer).
+- `src/components/ui/` holds the shadcn components. Add more with `npx shadcn@latest add <name>`.
+- `src/components/ModelViewer.tsx` renders `public/models/duaa.glb` in the hero. It is lazy-loaded so three.js stays out of the main bundle.
+- `src/index.css` imports Tailwind and defines the shadcn theme variables and the portfolio colors (lavender, peech, yellow).
+
+The 3D model was compressed from the original export with
+`npx @gltf-transform/cli optimize in.glb public/models/duaa.glb --compress meshopt --texture-compress webp --texture-size 2048 --simplify-ratio 0.15 --simplify-error 0.002`.

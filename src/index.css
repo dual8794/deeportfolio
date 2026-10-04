@@ -1,1 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Raleway:wght@200;400;600&display=swap");
 @import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --radius: 0.75rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.205 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.205 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.205 0 0);
+  --primary: #535bf2;
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: #faebed;
+  --secondary-foreground: #535bf2;
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: #757576;
+  --accent: #f5f5ff;
+  --accent-foreground: #535bf2;
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: #747bff;
+}
+
+@theme inline {
+  --font-primary: "Raleway", ui-sans-serif, system-ui, sans-serif;
+  --font-secondary: "Major Mono Display", ui-monospace, monospace;
+
+  --color-lavender: #535bf2;
+  --color-lavender-light: #646cff;
+  --color-lavender-lighter: #747bff;
+  --color-peech: #ffcbc4;
+  --color-peech-light: #ffe1e7;
+  --color-peech-lighter: #faebed;
+  --color-yellow: #efc56a;
+  --color-yellow-dark: #e8a927;
+  --color-grey: #969697;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 4rem;
+  }
+  body {
+    @apply bg-background font-primary text-foreground;
+  }
+}
