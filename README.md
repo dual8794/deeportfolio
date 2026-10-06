@@ -21,5 +21,4 @@ npm run lint     # lint with oxlint
 - `src/components/ModelViewer.tsx` renders `public/models/duaa.glb` in the hero. It is lazy-loaded so three.js stays out of the main bundle.
 - `src/index.css` imports Tailwind and defines the shadcn theme variables and the portfolio colors (lavender, peech, yellow).
 
-The 3D model was compressed from the original export with
-`npx @gltf-transform/cli optimize in.glb public/models/duaa.glb --compress meshopt --texture-compress webp --texture-size 2048 --simplify-ratio 0.15 --simplify-error 0.002`.
+The 3D model is a single static mesh, so it is animated in the shader (`src/components/modelAnimation.ts`): the girl waves both hands and blinks, and the cat swings its tail. The moving parts are marked by per-vertex weights that `scripts/paint-model-weights.mjs` paints onto the original Meshy export, which is then compressed to about 2 MB. The script header has the exact commands.
