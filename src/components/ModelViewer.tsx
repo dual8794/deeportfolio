@@ -1,11 +1,16 @@
-import { Suspense } from "react"
-import { Canvas } from "@react-three/fiber"
+import { Suspense, useMemo } from "react"
+import { Canvas, useFrame } from "@react-three/fiber"
 import { Center, OrbitControls, useGLTF } from "@react-three/drei"
+import { getModelAnimation, updateModelAnimation } from "@/components/modelAnimation"
 
 const MODEL_URL = "/models/duaa.glb"
 
 function Model() {
   const { scene } = useGLTF(MODEL_URL)
+  const animation = useMemo(() => getModelAnimation(scene), [scene])
+
+  useFrame(({ clock }) => updateModelAnimation(animation, clock.elapsedTime))
+
   return (
     <Center>
       <primitive object={scene} />
